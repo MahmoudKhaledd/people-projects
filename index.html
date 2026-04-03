@@ -79,8 +79,8 @@ animation:meshMove 20s ease-in-out infinite alternate}
 @keyframes floatD{0%,100%{transform:translate(0,0)}50%{transform:translate(-35px,-20px)}}
 .hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto;text-align:center}
 .hero h1{font-size:clamp(2.5rem,5.5vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin-bottom:24px}
-.hero h1 .word{display:inline-block;opacity:0;transform:translateY(30px);transition:all .7s var(--spring)}
-.hero h1 .word.visible{opacity:1;transform:translateY(0)}
+.hero h1{opacity:0;transform:translateY(30px);transition:all .8s var(--spring)}
+.hero h1.visible{opacity:1;transform:translateY(0)}
 .gradient-text{background:linear-gradient(135deg,#6366F1,#8B5CF6,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--text-sec);max-width:600px;margin:0 auto 36px;line-height:1.7;opacity:0;transform:translateY(20px);transition:all .8s var(--spring) .6s}
 .hero-sub.visible{opacity:1;transform:translateY(0)}
@@ -214,7 +214,7 @@ footer{background:var(--text);color:rgba(255,255,255,.6);padding:48px 0 32px}
   .timeline{flex-direction:column;align-items:flex-start;padding-left:40px}
   .timeline::before,.timeline-progress{top:0;bottom:0;left:24px;width:3px;height:100%}
   .step{min-width:auto;padding:24px 0}
-  .step-circle{margin:0 0 16px -60px;position:relative;z-index:2}
+  .step-circle{margin:0 0 16px 0;position:relative;z-index:2}
   .platform-grid::before{display:none}
   .company-logos{gap:24px}
   .footer-inner{flex-direction:column;text-align:center}
@@ -559,31 +559,10 @@ function closeMobile(){
   document.body.style.overflow='';
 }
 
-// Hero word-by-word reveal
+// Hero fade-in reveal (simpler, no word splitting)
 (function(){
-  const h1=document.getElementById('heroTitle');
-  const html=h1.innerHTML;
-  // Split into words, preserving HTML tags
-  const words=[];
-  const regex=/(\S+|<[^>]+>)/g;
-  let m;
-  while((m=regex.exec(html))!==null){
-    words.push(m[1]);
-  }
-  let newHtml='';
-  let wordIdx=0;
-  words.forEach(token=>{
-    if(token.startsWith('<')){
-      newHtml+=token;
-    }else{
-      newHtml+=`<span class="word" style="transition-delay:${wordIdx*0.08}s">${token}</span> `;
-      wordIdx++;
-    }
-  });
-  h1.innerHTML=newHtml;
-  // Trigger after a small delay
   setTimeout(()=>{
-    h1.querySelectorAll('.word').forEach(w=>w.classList.add('visible'));
+    document.getElementById('heroTitle').classList.add('visible');
     document.getElementById('heroSub').classList.add('visible');
     document.getElementById('heroCtas').classList.add('visible');
     document.getElementById('toolLogos').classList.add('visible');
