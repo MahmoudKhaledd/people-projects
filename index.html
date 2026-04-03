@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People & Projects — Agentic AI Consultancy</title>
+<meta name="description" content="We help enterprise teams in Saudi Arabia and the GCC ship faster, automate smarter, and operate at 5x their current capacity using production-grade AI agents.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#DA7756;--bg:#FAF9F6;--card:#FFFFFF;--border:#E8E2DB;--text:#1A1A1A;--text-secondary:#6B6560;--text-muted:#9B9590;--surface:#F5F2EE;--success:#2D9F46;--warning:#C98A1A;--danger:#D14343;--radius-card:12px;--radius-btn:8px;--radius-pill:9999px;--shadow-card:0 1px 3px rgba(0,0,0,0.04);--shadow-hover:0 4px 12px rgba(0,0,0,0.08)}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all .3s ease;background:transparent}
+.navbar.scrolled{background:rgba(250,249,246,0.92);backdrop-filter:blur(12px);box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.navbar .container{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:700;font-size:1.1rem}
+.nav-logo-circle{width:36px;height:36px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color .2s;min-height:44px;display:flex;align-items:center}
+.nav-links a:hover{color:var(--primary)}
+.btn-primary{display:inline-flex;align-items:center;padding:10px 24px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-btn);font-family:inherit;font-size:0.9rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s;min-height:44px}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-outline{display:inline-flex;align-items:center;padding:10px 24px;background:transparent;color:var(--text);border:1.5px solid var(--border);border-radius:var(--radius-btn);font-family:inherit;font-size:0.9rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s;min-height:44px}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);transition:all .3s;border-radius:2px}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* HERO */
+.hero{padding:160px 0 96px;position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(218,119,86,0.15) 0%,transparent 70%);filter:blur(60px);pointer-events:none}
+.hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(0,0,0,0.04) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+.hero .container{position:relative;z-index:1}
+.hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;line-height:1.15;max-width:800px;margin:0 auto 24px}
+.hero h1 span{color:var(--primary)}
+.hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--text-secondary);max-width:640px;margin:0 auto 40px;line-height:1.7}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero-tools{margin-top:48px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.hero-tools span{font-size:0.85rem;color:var(--text-muted);font-weight:500;opacity:0.7}
+
+/* SOCIAL PROOF */
+.social-proof{padding:48px 0 64px;text-align:center}
+.social-proof p{font-size:0.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:24px}
+.social-proof .logos{display:flex;gap:40px;justify-content:center;flex-wrap:wrap}
+.social-proof .logos span{font-weight:700;letter-spacing:0.05em;color:#C5BFB9;font-size:1.05rem}
+
+/* SECTION HEADERS */
+.eyebrow{font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:8px}
+.section-header{text-align:center;margin-bottom:56px}
+.section-header h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;margin-bottom:16px}
+.section-header p{color:var(--text-secondary);max-width:560px;margin:0 auto}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-card);padding:32px;box-shadow:var(--shadow-card);transition:all .3s ease;cursor:default}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.service-card .icon{font-size:2rem;margin-bottom:16px}
+.service-card h3{font-size:1.05rem;font-weight:600;margin-bottom:8px}
+.service-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.6}
+
+/* PLATFORM */
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.platform-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-card);padding:32px;border-left:4px solid var(--primary);box-shadow:var(--shadow-card)}
+.platform-card.success-border{border-left-color:var(--success)}
+.platform-card h3{font-size:1.15rem;font-weight:600;margin-bottom:8px}
+.platform-card .desc{color:var(--text-secondary);font-size:0.9rem;margin-bottom:20px;line-height:1.6}
+.platform-card ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.platform-card ul li{font-size:0.88rem;color:var(--text-secondary);display:flex;align-items:center;gap:8px}
+.platform-card ul li::before{content:'✓';color:var(--success);font-weight:700;font-size:0.8rem}
+.platform-note{text-align:center;margin-top:40px;font-style:italic;color:var(--text-secondary);max-width:640px;margin-left:auto;margin-right:auto;font-size:0.95rem}
+
+/* PROCESS */
+.process-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-timeline::before{content:'';position:absolute;top:36px;left:calc(12.5% + 18px);right:calc(12.5% + 18px);height:2px;background:var(--border)}
+.process-step{text-align:center;padding:0 16px;position:relative}
+.step-number{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.3rem;font-weight:700;color:#fff;position:relative;z-index:1;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+.step-number.terracotta{background:var(--primary)}
+.step-number.warning{background:var(--warning)}
+.step-number.success{background:var(--success)}
+.step-timeframe{font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px}
+.step-number.terracotta+.step-timeframe,.process-step:nth-child(1) .step-timeframe{color:var(--primary)}
+.process-step:nth-child(2) .step-timeframe{color:var(--warning)}
+.process-step:nth-child(3) .step-timeframe{color:var(--success)}
+.process-step:nth-child(4) .step-timeframe{color:var(--primary)}
+.process-step h3{font-size:1.05rem;font-weight:600;margin-bottom:8px}
+.process-step p{font-size:0.85rem;color:var(--text-secondary);line-height:1.5}
+
+/* CASE STUDIES */
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.case-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-card);padding:32px;box-shadow:var(--shadow-card);transition:all .3s ease}
+.case-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.case-tag{font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--primary);margin-bottom:16px}
+.case-card h3{font-size:1.05rem;font-weight:600;margin-bottom:16px}
+.case-section{margin-bottom:14px}
+.case-section strong{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);display:block;margin-bottom:4px}
+.case-section p{font-size:0.88rem;color:var(--text-secondary);line-height:1.5}
+.case-results{background:var(--surface);border-radius:8px;padding:16px;margin-top:16px}
+.case-results strong{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--success);display:block;margin-bottom:8px}
+.case-results p{font-size:0.88rem;font-weight:600;color:var(--text);line-height:1.6}
+
+/* STATS */
+.stats{background:var(--primary);color:#fff;padding:72px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-item h3{font-size:clamp(2rem,4vw,2.8rem);font-weight:700;margin-bottom:4px}
+.stat-item p{font-size:0.9rem;opacity:0.85;font-weight:500}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact-info h2{font-size:clamp(1.6rem,3vw,2rem);font-weight:700;margin-bottom:16px}
+.contact-info>p{color:var(--text-secondary);margin-bottom:24px;line-height:1.6}
+.contact-email{display:inline-flex;align-items:center;gap:8px;font-size:0.9rem;color:var(--text);margin-bottom:24px;word-break:break-all}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.contact-form label{font-size:0.82rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px}
+.contact-form input,.contact-form textarea{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius-btn);font-family:inherit;font-size:0.9rem;background:var(--card);color:var(--text);transition:border-color .2s;outline:none}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--primary)}
+.contact-form textarea{resize:vertical;min-height:120px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 0}
+.footer-content{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-weight:700;font-size:1rem}
+.footer-links{display:flex;gap:24px;list-style:none}
+.footer-links a{color:var(--text-muted);text-decoration:none;font-size:0.85rem;transition:color .2s;min-height:44px;display:flex;align-items:center}
+.footer-links a:hover{color:var(--primary)}
+.footer-copy{font-size:0.82rem;color:var(--text-muted)}
+
+/* REVEAL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.services-grid{grid-template-columns:repeat(2,1fr)}
+.cases-grid{grid-template-columns:repeat(2,1fr)}
+.cases-grid .case-card:last-child{grid-column:1/-1}
+.process-timeline{grid-template-columns:repeat(2,1fr);gap:32px}
+.process-timeline::before{display:none}
+}
+@media(max-width:768px){
+section{padding:64px 0}
+.hero{padding:120px 0 64px}
+.nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--bg);flex-direction:column;padding:80px 32px 32px;box-shadow:-4px 0 20px rgba(0,0,0,0.1);transition:right .3s ease;gap:20px}
+.nav-links.open{right:0}
+.hamburger{display:flex}
+.services-grid,.cases-grid{grid-template-columns:1fr}
+.cases-grid .case-card:last-child{grid-column:auto}
+.platform-grid,.contact-grid{grid-template-columns:1fr;gap:32px}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+.process-timeline{grid-template-columns:1fr;max-width:400px;margin:0 auto}
+.process-step{text-align:left;display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--border)}
+.process-step:last-child{border-bottom:none}
+.step-number{width:48px;height:48px;font-size:1rem;margin:0;flex-shrink:0}
+.footer-content{flex-direction:column;text-align:center}
+.footer-links{flex-wrap:wrap;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+<div class="container">
+<a href="#" class="nav-logo"><span class="nav-logo-circle">P&P</span> People & Projects</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#services">Services</a></li>
+<li><a href="#platform">Platform</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#case-studies">Case Studies</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="mailto:Mahmoudd.khaled95@gmail.com?subject=Book a Call - People & Projects" class="btn-primary">Book a Call</a></li>
+</ul>
+<button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<h1 class="reveal">Agentic AI That <span>Multiplies</span> What Your Team Can Build.</h1>
+<p class="reveal reveal-delay-1">We help enterprise teams in Saudi Arabia and the GCC ship faster, automate smarter, and operate at 5x their current capacity — using production-grade AI agents.</p>
+<div class="hero-ctas reveal reveal-delay-2">
+<a href="mailto:Mahmoudd.khaled95@gmail.com?subject=Book a Call - People & Projects" class="btn-primary">Book a Call</a>
+<a href="#process" class="btn-outline">See How It Works</a>
+</div>
+<div class="hero-tools reveal reveal-delay-3">
+<span>Claude</span><span>·</span><span>GitHub</span><span>·</span><span>Jira</span><span>·</span><span>Slack</span><span>·</span><span>OpenClaw</span><span>·</span><span>Cursor</span>
+</div>
+</div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<div class="social-proof reveal">
+<div class="container">
+<p>Trusted by leading companies across the GCC</p>
+<div class="logos">
+<span>NexaTech</span><span>DigiCore</span><span>CloudRise</span><span>DataVerse</span><span>QuantumEdge</span>
+</div>
+</div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+<div class="container">
+<div class="section-header reveal">
+<p class="eyebrow">What We Do</p>
+<h2>Everything Your Team Needs to Work with Agentic AI.</h2>
+</div>
+<div class="services-grid">
+<div class="service-card reveal">
+<div class="icon">🗺️</div>
+<h3>AI Transformation Strategy</h3>
+<p>We audit your tools, map your workflows, and build a clear roadmap to 3-5x your team's output.</p>
+</div>
+<div class="service-card reveal reveal-delay-1">
+<div class="icon">🎓</div>
+<h3>Claude Code Training</h3>
+<p>Hands-on workshops on your real projects. Your team leaves ready to build with AI autonomously.</p>
+</div>
+<div class="service-card reveal reveal-delay-2">
+<div class="icon">🤝</div>
+<h3>Embedded Partnership</h3>
+<p>We don't deliver a deck and disappear. We stay embedded until the transformation is measurable.</p>
+</div>
+<div class="service-card reveal reveal-delay-1">
+<div class="icon">🤖</div>
+<h3>Custom AI Agents</h3>
+<p>Purpose-built agents for your workflows — from support automation to code review to data pipelines.</p>
+</div>
+<div class="service-card reveal reveal-delay-2">
+<div class="icon">⚙️</div>
+<h3>Agentic AI Engineering</h3>
+<p>Full-stack agent development with Claude Code and OpenClaw. Production-grade, not prototypes.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PLATFORM -->
+<section id="platform" style="background:var(--surface)">
+<div class="container">
+<div class="section-header reveal">
+<p class="eyebrow">The Platform</p>
+<h2>Two Platforms. One Complete Agentic AI Stack.</h2>
+</div>
+<div class="platform-grid">
+<div class="platform-card reveal">
+<h3>Claude Code</h3>
+<p class="desc">The coding brain. Writes, tests, reviews, and deploys code — autonomously and in parallel.</p>
+<ul>
+<li>End-to-end task completion</li>
+<li>Parallel agent workstreams</li>
+<li>Team convention memory</li>
+<li>20+ languages including Arabic</li>
+</ul>
+</div>
+<div class="platform-card success-border reveal reveal-delay-1">
+<h3>OpenClaw</h3>
+<p class="desc">The orchestration layer. Connects agents to your tools, manages memory, and coordinates multi-agent workflows.</p>
+<ul>
+<li>Slack, Telegram, Discord integration</li>
+<li>Tool access (search, files, exec)</li>
+<li>Persistent memory across sessions</li>
+<li>Multi-agent orchestration</li>
+</ul>
+</div>
+</div>
+<p class="platform-note reveal">Together, your agents don't just write code. They communicate, remember, use tools, and work as a coordinated team.</p>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+<div class="container">
+<div class="section-header reveal">
+<p class="eyebrow">How It Works</p>
+<h2>From Discovery to Transformation in 90 Days.</h2>
+</div>
+<div class="process-timeline">
+<div class="process-step reveal">
+<div class="step-number terracotta">1</div>
+<div>
+<p class="step-timeframe">Week 1-2</p>
+<h3>Discovery</h3>
+<p>Audit tools, map workflows, identify highest-leverage opportunities.</p>
+</div>
+</div>
+<div class="process-step reveal reveal-delay-1">
+<div class="step-number warning">2</div>
+<div>
+<p class="step-timeframe">Week 3-4</p>
+<h3>Strategy</h3>
+<p>Custom roadmap, tool selection, team alignment, success metrics.</p>
+</div>
+</div>
+<div class="process-step reveal reveal-delay-2">
+<div class="step-number success">3</div>
+<div>
+<p class="step-timeframe">Week 5-8</p>
+<h3>Implementation</h3>
+<p>Deploy agentic AI, train team, ship first autonomous agents.</p>
+</div>
+</div>
+<div class="process-step reveal reveal-delay-3">
+<div class="step-number terracotta">4</div>
+<div>
+<p class="step-timeframe">Month 3+</p>
+<h3>Ongoing</h3>
+<p>Continuous training, weekly capability upgrades, measured results.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="case-studies" style="background:var(--surface)">
+<div class="container">
+<div class="section-header reveal">
+<p class="eyebrow">Case Studies</p>
+<h2>Real Results from Real Teams.</h2>
+</div>
+<div class="cases-grid">
+<div class="case-card reveal">
+<p class="case-tag">Insurance Company · Saudi Arabia</p>
+<h3>Digital Transformation at Scale</h3>
+<div class="case-section"><strong>Challenge</strong><p>Manual claims processing and slow feature delivery held back a 40-person digital team.</p></div>
+<div class="case-section"><strong>Solution</strong><p>Deployed an agentic AI pipeline — from spec to code to test to deploy — with Claude Code and OpenClaw.</p></div>
+<div class="case-results"><strong>Results</strong><p>4× developer output · 60% fewer bugs · 3 new features per week · 60 days to first results</p></div>
+</div>
+<div class="case-card reveal reveal-delay-1">
+<p class="case-tag">Fintech Startup · UAE</p>
+<h3>Parallel Development Engine</h3>
+<div class="case-section"><strong>Challenge</strong><p>A 12-person team with a massive roadmap and limited bandwidth.</p></div>
+<div class="case-section"><strong>Solution</strong><p>Claude Code for parallel development + OpenClaw agents for Slack-based project management.</p></div>
+<div class="case-results"><strong>Results</strong><p>3× shipping speed · Raised Series A · 8 autonomous agents in production</p></div>
+</div>
+<div class="case-card reveal reveal-delay-2">
+<p class="case-tag">Government Entity · KSA</p>
+<h3>Paperless Government Operations</h3>
+<div class="case-section"><strong>Challenge</strong><p>Paper-based processes and data silos across 6 departments.</p></div>
+<div class="case-section"><strong>Solution</strong><p>Custom document processing agents with Slack integration and persistent memory.</p></div>
+<div class="case-results"><strong>Results</strong><p>70% workflow automation · 15 hours saved per employee per week · 4 departments transformed</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+<div class="container">
+<div class="stats-grid">
+<div class="stat-item reveal">
+<h3><span class="counter" data-target="5" data-suffix="×">0</span></h3>
+<p>Team Output</p>
+</div>
+<div class="stat-item reveal reveal-delay-1">
+<h3><span class="counter" data-target="60" data-suffix="">0</span></h3>
+<p>Days to Results</p>
+</div>
+<div class="stat-item reveal reveal-delay-2">
+<h3><span class="counter" data-target="99.9" data-suffix="%" data-decimal="true">0</span></h3>
+<p>Code Accuracy</p>
+</div>
+<div class="stat-item reveal reveal-delay-3">
+<h3><span class="counter" data-target="20" data-suffix="+">0</span></h3>
+<p>Languages Supported</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+<div class="contact-grid">
+<div class="contact-info reveal">
+<p class="eyebrow">Get in Touch</p>
+<h2>Ready to Transform Your Team?</h2>
+<p>Let's talk about how agentic AI can multiply what your team builds.</p>
+<p class="contact-email">📧 Mahmoudd.khaled95@gmail.com</p>
+<a href="mailto:Mahmoudd.khaled95@gmail.com?subject=Book a Call - People & Projects" class="btn-primary">Book a Call</a>
+</div>
+<div class="reveal reveal-delay-1">
+<form class="contact-form" id="contactForm">
+<div><label for="name">Name</label><input type="text" id="name" placeholder="Your name" required></div>
+<div><label for="email">Email</label><input type="email" id="email" placeholder="you@company.com" required></div>
+<div><label for="company">Company</label><input type="text" id="company" placeholder="Company name"></div>
+<div><label for="message">Message</label><textarea id="message" placeholder="Tell us about your project..." required></textarea></div>
+<button type="submit" class="btn-primary" style="align-self:flex-start">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<span class="footer-logo">People & Projects</span>
+<ul class="footer-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#platform">Platform</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#case-studies">Case Studies</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<p class="footer-copy">© 2025 People & Projects. All rights reserved. · Riyadh, Saudi Arabia</p>
+</div>
+</div>
+</footer>
+
+<script>
+// Navbar scroll
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>50)});
+
+// Hamburger
+const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');navLinks.classList.toggle('open')});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('open');navLinks.classList.remove('open')}));
+
+// Reveal on scroll
+const revealEls=document.querySelectorAll('.reveal');
+const revealObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');revealObs.unobserve(e.target)}})},{threshold:0.1});
+revealEls.forEach(el=>revealObs.observe(el));
+
+// Counter animation
+let countersAnimated=false;
+const counterObs=new IntersectionObserver((entries)=>{
+entries.forEach(e=>{if(e.isIntersecting&&!countersAnimated){
+countersAnimated=true;
+document.querySelectorAll('.counter').forEach(c=>{
+const target=parseFloat(c.dataset.target),suffix=c.dataset.suffix||'',isDecimal=c.dataset.decimal==='true';
+const duration=2000;let start=null;
+const step=(ts)=>{if(!start)start=ts;const progress=Math.min((ts-start)/duration,1);const eased=1-Math.pow(1-progress,3);
+c.textContent=(isDecimal?(eased*target).toFixed(1):Math.floor(eased*target))+suffix;
+if(progress<1)requestAnimationFrame(step)};
+requestAnimationFrame(step);
+});
+counterObs.unobserve(e.target);
+}})},{threshold:0.3});
+const statsEl=document.getElementById('stats');
+if(statsEl)counterObs.observe(statsEl);
+
+// Contact form
+document.getElementById('contactForm').addEventListener('submit',function(e){
+e.preventDefault();
+const name=document.getElementById('name').value,email=document.getElementById('email').value,company=document.getElementById('company').value,message=document.getElementById('message').value;
+const body=`Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`;
+window.location.href=`mailto:Mahmoudd.khaled95@gmail.com?subject=New Inquiry from People & Projects&body=${encodeURIComponent(body)}`;
+});
+</script>
+</body>
+</html>
